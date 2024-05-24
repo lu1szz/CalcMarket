@@ -9,14 +9,11 @@ export default function Acesso() {
 
     return (
         <View style={styles.container}> 
-            <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('index')}>
-                <Ionicons size={25} color={"#fff"} name="arrow-back-outline" />
-            </TouchableOpacity>
             <Animatable.Image
+                style={styles.logo}
                 delay={1000}
                 animation="flipInY"
-                source={require("../assets/CalcMarket__2_-removebg-preview.png")}
-                style={styles.logo}
+                source={require("../assets/CalcMarket.png")}
                 resizeMode="contain"
             />
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -71,22 +68,18 @@ const styles = StyleSheet.create({
         top: 40,
         left: 20,
     },
-    containerLogo: {
-        alignItems: 'center',
-        marginTop: 40,
-    },
     logo: {
-        width: 150,
-        height: 150,
+        width: 250,
+        height: 240,
         alignSelf: 'center',
     },
     squaresContainer: {
-        marginTop: 20,
+        marginTop: -50,
     },
     squareRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginVertical: 20,
+        marginVertical: 30,
     },
     squareContainer: {
         width: 130,
@@ -95,7 +88,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 40,
-        marginHorizontal: 20,
+        marginHorizontal: 30,
     },
     squareImage: {
         width: '50%',
@@ -109,6 +102,5 @@ const styles = StyleSheet.create({
         paddingStart: "5%",
         paddingEnd: "5%",
     },
-    
     
 });

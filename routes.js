@@ -5,6 +5,7 @@ import Page1 from './pages/page1';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
 import Page4 from './pages/page4';
+import Soma from './pages/soma';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,11 @@ export default function Routes() {
                 options={{ headerShown: false }}
                 name="page4"
                 component={Page4}
+                />
+                <Stack.Screen
+                options={{ headerShown: false }}
+                name="soma"
+                component={Soma}
                 />
                 
         </Stack.Navigator>

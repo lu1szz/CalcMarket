@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Image, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, StyleSheet, Image, Text, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons/';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Page1() {
+export default function Page3() {
+    
     const navigation = useNavigation();
     return (
         <View style={styles.container}> 
@@ -12,7 +13,7 @@ export default function Page1() {
                 <Ionicons size={25} color={"#fff"} name="arrow-back-outline" />
             </TouchableOpacity>
             <Animatable.Image
-                source={require("../assets/CalcMarket__2_-removebg-preview.png")}
+                source={require("../assets/CalcMarket.png")}
                 style={styles.logo}
                 resizeMode="contain"
             />
@@ -25,12 +26,14 @@ export default function Page1() {
                                 style={styles.squareImage}
                                 resizeMode="contain"
                             />
-                            <View style={styles.rectangle}></View>
+                            
+                                <Text style={styles.text}>R$</Text>
+                            
+                            <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('soma')}>
+                                <Text style={styles.addButtonText}>Adicionar</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.addButton} onPress={() => console.log('soma')}>
-                            <Text style={styles.addButtonText}>Adicionar</Text>
-                        </TouchableOpacity>
                     <View style={styles.squareContainer}>
                         <View style={styles.squareItem}>
                             <Image
@@ -38,12 +41,14 @@ export default function Page1() {
                                 style={[styles.squareImage, { width: 100, height: 100 }]}
                                 resizeMode="contain"
                             />
-                            <View style={styles.rectangle}></View>
+                            
+                                <Text style={styles.text}>R$</Text>
+                            
+                            <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('soma')}>
+                                <Text style={styles.addButtonText}>Adicionar</Text>
+                            </TouchableOpacity>
                         </View>        
                     </View>
-                      <TouchableOpacity style={styles.addButton} onPress={() => console.log('soma')}>
-                            <Text style={styles.addButtonText}>Adicionar</Text>
-                        </TouchableOpacity>
                     <View style={styles.squareContainer}>
                         <View style={styles.squareItem}>
                             <Image
@@ -51,12 +56,14 @@ export default function Page1() {
                                 style={styles.squareImage}
                                 resizeMode="contain"
                             />
-                            <View style={styles.rectangle}></View>
+                            
+                                <Text style={styles.text}>R$</Text>
+                            
+                            <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('soma')}>
+                                <Text style={styles.addButtonText}>Adicionar</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                     <TouchableOpacity style={styles.addButton} onPress={() => console.log('soma')}>
-                            <Text style={styles.addButtonText}>Adicionar</Text>
-                        </TouchableOpacity>
                 </View>
             </Animatable.View>
         </View>
@@ -74,25 +81,24 @@ const styles = StyleSheet.create({
         left: 20,
     },
     logo: {
-        width: 150,
-        height: 150,
+        width: 170,
+        height: 170,
         alignSelf: 'center',
         marginTop: 10, // Ajuste conforme necessário para o layout
     },
     squaresContainer: {
-        marginTop: 20,
+        marginTop: -15,
         marginLeft: 20, // Ajusta o espaçamento à esquerda
         alignItems: 'flex-start', // Alinha os itens à esquerda
     },
     squareContainer: {
         flexDirection: 'row', // Para alinhar o retângulo ao lado da imagem
         alignItems: 'center', // Para centralizar verticalmente a imagem e o retângulo
-        marginBottom: 1, // Adiciona espaço entre os quadrados
+        marginBottom: 50, // Adiciona espaço entre os quadrados
     },
     squareItem: {
         flexDirection: 'row',
         alignItems: 'center',
-       
     },
     squareImage: {
         width: 100,
@@ -101,25 +107,22 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         marginRight: 20, // Adiciona espaço entre a imagem e o retângulo
     },
-    rectangle: {
-        width: 200,
-        height: 60,
-        backgroundColor: '#FFFFFF',
-        borderRadius: 5,
+    text: {
+        fontSize: 20,
+        color: '#FFF',
     },
     addButton: {
         backgroundColor: '#3F9AC1',
         borderRadius: 20,
         paddingVertical: 10,
-        paddingHorizontal: 10,
+        paddingHorizontal: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 250,
-        
+        marginLeft: 50,
     },
     addButtonText: {
         color: '#FFF',
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: 'bold',
     },
     containerForm: {

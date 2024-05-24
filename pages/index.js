@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as Animatable from 'react-native-animatable';
 
@@ -7,25 +7,29 @@ export default function Bem_Vindo() {
 
     const navigation = useNavigation();
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigation.navigate('entrada');
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, [navigation]);
+
     return (
         <View style={styles.container} >
             <View style={styles.containerLogo}>
                 <Animatable.Image
                     delay={1000}
                     animation="flipInY"
-                    source={require("../assets/CalcMarket__2_-removebg-preview.png")}
+                    source={require("../assets/CalcMarket.png")}
                     style={styles.logo}
                     resizeMode="contain"
                 />
             </View>
-            <Animatable.View delay={600} animation='fadeInUp' style={styles.containerForm}>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('entrada')}
-                    style={styles.button}>
-                    <Text style={styles.buttonText}>
-                        Acessar
-                    </Text>
-                </TouchableOpacity>
+            <Animatable.View  style={styles.containerForm}>
+                <Text style={styles.buttonText}>
+                    Entrando...
+                </Text>
             </Animatable.View>
         </View>
     );
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logo: {
-        width: '70%',
+        width: '90%',
     },
     containerForm: {
         flex: 1,
@@ -57,18 +61,10 @@ const styles = StyleSheet.create({
         paddingStart: '5%',
         paddingEnd: '5%'
     },
-    button: {
-        backgroundColor: '#FFF',
-        borderRadius: 50,
-        paddingVertical: 15,
-        paddingHorizontal: 30,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 20,
-    },
     buttonText: {
         fontSize: 18,
-        color: '#880000',
-        fontWeight: 'bold'
-    }
+        color: '#FFF',
+        fontWeight: 'bold',
+        marginTop: -20,
+    },
 });
