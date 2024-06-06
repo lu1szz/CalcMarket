@@ -42,9 +42,9 @@ export default function Page1() {
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
                 <View style={styles.squaresContainer}>
                     {[
-                        { id: '1', image: require('../assets/image/image11.png'), price: 6.98, name: 'Produto 1' },
-                        { id: '2', image: require('../assets/image/image12.png'), price: 8.99, name: 'Produto 2' },
-                        { id: '3', image: require('../assets/image/image13.png'), price: 12.98, name: 'Produto 3' },
+                        { id: '1', image: require('../assets/image/image14.png'), price: 4.99, name: 'Produto 1' },
+                        { id: '2', image: require('../assets/image/image15.png'), price: 9.98, name: 'Produto 2' },
+                        { id: '3', image: require('../assets/image/image16.png'), price: 11.97, name: 'Produto 3' },
                         // Adicione mais produtos aqui conforme necessário
                     ].map((item) => (
                         <View key={item.id} style={styles.productContainer}>
